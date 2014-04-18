@@ -66,41 +66,29 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CSS\Common.css" />
-    <Content Include="Games\Assets\baddie.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Games\Assets\bird.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Games\Assets\diamond.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Games\Assets\dude.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Games\Assets\firstaid.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Games\Assets\hello.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Games\Assets\pipe.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Games\Assets\platform.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Games\Assets\sky.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Games\Assets\star.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Games\platformer.html" />
-    <Content Include="Games\platformer.js" />
-    <Content Include="Games\helloworld.html" />
-    <Content Include="Games\helloworld.js" />
-    <Content Include="Games\phaser.min.js" />
+    <Content Include="Games\Flappy\Assets\bird.png" />
+    <Content Include="Games\Flappy\Assets\pipe.png" />
+    <Content Include="Games\HelloWorld\Assets\hello.png" />
+    <Content Include="Games\HelloWorld\HTML\helloworld.html" />
+    <Content Include="Games\HelloWorld\Scripts\helloworld.js" />
+    <Content Include="Games\HelloWorld\Scripts\phaser.min.js" />
+    <Content Include="Games\Platformer\Assets\baddie.png" />
+    <Content Include="Games\Platformer\Assets\diamond.png" />
+    <Content Include="Games\Platformer\Assets\dude.png" />
+    <Content Include="Games\Platformer\Assets\firstaid.png" />
+    <Content Include="Games\Platformer\Assets\platform.png" />
+    <Content Include="Games\Platformer\Assets\sky.png" />
+    <Content Include="Games\Platformer\Assets\star.png" />
+    <Content Include="Games\Platformer\HTML\platformer.html" />
+    <Content Include="Games\Platformer\Scripts\phaser.min.js" />
+    <Content Include="Games\Platformer\Scripts\platformer.js" />
+    <Content Include="Games\Pong\HTML\pong.html" />
+    <Content Include="Games\Pong\Scripts\ball.js" />
+    <Content Include="Games\Pong\Scripts\Entity.js" />
+    <Content Include="Games\Pong\Scripts\game.js" />
+    <Content Include="Games\Pong\Scripts\jquery-2.1.0.min.js" />
+    <Content Include="Games\Pong\Scripts\paddle.js" />
+    <Content Include="Games\Pong\Scripts\pong.js" />
     <Content Include="HTML\Index.html" />
     <Content Include="HTML\JavaScript\jQuery.html" />
     <Content Include="Web.config" />
