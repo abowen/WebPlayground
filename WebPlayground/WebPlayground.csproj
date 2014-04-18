@@ -66,6 +66,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CSS\Common.css" />
+    <Content Include="Games\Index.html" />
+    <Content Include="Games\phaser.min.js" />
     <Content Include="HTML\Index.html" />
     <Content Include="HTML\JavaScript\jQuery.html" />
     <Content Include="Web.config" />
