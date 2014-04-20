@@ -1,42 +1,57 @@
 ﻿body {
     font-family: monospace;
+    /*font: normal 11px "Lucida Grande", "Lucida Sans Unicode", verdana, lucida, sans-serif;*/
+}
+
+#header {
+    margin: 0 auto;
+    width: 500px;
 }
 
 .box {
     display: inline-block;
     vertical-align: top;
-
     width: 300px;
-    height: 200px;    
-
+    height: 200px;
     margin: 1em;
     padding: 10px;
-        
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-
     border: solid whitesmoke 10px;
 }
 
-#header {    
-    margin: 0 auto;
-    width: 500px;
-}
-
-#box1 {    
+#box1 {
     background-color: lightgreen;
 }
 
-#box2 {    
+#box2 {
     background-color: lightblue;
 }
 
-#box3 {    
+#box3 {
     background-color: lightpink;
 }
 
-#box4 {    
+#box4 {
     background-color: lightyellow;
 }
 
+
+
+ul {
+    list-style-type: none;
+    text-align: left;
+}
+
+    ul li a {        
+        padding-left: 5px;
+        padding-right: 5px;
+        text-align: left;
+        text-decoration: none;
+    }
+
+        ul li a:hover {            
+            color: whitesmoke;
+            background-color: black;
+        }
