@@ -66,10 +66,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CSS\Common.css" />
+    <Content Include="Games\DoomDemake\Assets\bfg.png" />
     <Content Include="Games\DoomDemake\Assets\lofi_1bit_scifi.png" />
+    <Content Include="Games\DoomDemake\Assets\plasma.png" />
     <Content Include="Games\DoomDemake\Assets\player.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Games\DoomDemake\Assets\shell.png" />
     <Content Include="Games\DoomDemake\HTML\doomdemake.html" />
     <Content Include="Games\DoomDemake\Scripts\phaser.min.js" />
     <Content Include="Games\DoomDemake\Scripts\doom.js" />
