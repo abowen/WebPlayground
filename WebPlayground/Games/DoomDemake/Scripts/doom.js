@@ -8,6 +8,8 @@ function preload() {
     game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
     game.scale.setScreenSize();
 
+    //game.load.tilemap('map', 'assets/maps/level01.json', null, Phaser.Tilemap.TILED_JSON);
+
     game.load.spritesheet('player', '../assets/player.png', 8, 8);
     game.load.spritesheet('shell', '../assets/shell.png', 2, 2);
 }

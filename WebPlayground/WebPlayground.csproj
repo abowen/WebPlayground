@@ -57,6 +57,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Games\DoomDemake\Assets\maps\level01.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -78,6 +81,9 @@
     <Content Include="Games\DoomDemake\Scripts\doom.js" />
     <Content Include="Games\Flappy\Assets\bird.png" />
     <Content Include="Games\Flappy\Assets\pipe.png" />
+    <Content Include="Games\Flappy\HTML\flappy.html" />
+    <Content Include="Games\Flappy\Scripts\phaser.min.js" />
+    <Content Include="Games\Flappy\Scripts\flappy.js" />
     <Content Include="Games\HelloWorld\Assets\hello.png" />
     <Content Include="Games\HelloWorld\HTML\helloworld.html" />
     <Content Include="Games\HelloWorld\Scripts\helloworld.js" />
