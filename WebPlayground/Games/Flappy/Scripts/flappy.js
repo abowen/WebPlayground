@@ -8,35 +8,77 @@ function preload() {
 }
 
 var bird;
+var pipes;
+var pipeTimer;
 
 function create() {
+    // GAME
     game.physics.startSystem(Phaser.Physics.ARCADE);
 
-    // Display the bird on the screen
+    // BIRD
+    // graphics
     bird = game.add.sprite(100, 245, 'bird');
+    bird.anchor.setTo(-0.5, 0.5);
+    // phyiscs
     game.physics.arcade.enable(bird);
-
-    // Add gravity to the bird to make it fall
-    bird.body.gravity.y = 1000;  
-
-    // Call the 'jump' function when the spacekey is hit
+    bird.body.gravity.y = 1000;
+    // interaction
     var spaceKey = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
-    spaceKey.onDown.add(jump, this);     
+    spaceKey.onDown.add(jump, this);
+    
+    // PIPES 
+    pipes = game.add.group();
+    pipes.createMultiple(20, 'pipe');
+
+    pipeTimer = game.time.events.loop(1500, addPipeColumn, this);
 }
 
-function update() {  
-    // If the bird is out of the world (too high or too low), call the 'restart_game' function
+function update() {
     if (bird.inWorld == false) {
         restart();
     }
+
+    if (bird.angle < 20) {
+        bird.angle += 1;
+    }
 }
 
-// Make the bird jump 
-function jump() {      
+function restart() {
+    game.time.events.remove(this.timer);
+
+}
+
+function jump() {
     bird.body.velocity.y = -350;
+    
+    var animation = game.add.tween(bird);    
+    animation.to({ angle: -20 }, 100);
+    animation.start();
 }
 
-// Restart the game
-function restart() {      
-    this.game.state.start('main');
+function addPipeColumn() {
+    var hole = Math.floor(Math.random() * 5) + 1;
+
+    for (var i = 0; i < 8; i++) {
+        if (i != hole && i != hole + 1) {
+            addPipe(400, i * 60 + 10);
+        }
+    }
+}
+
+function addPipe(x, y) {
+    var pipe = pipes.getFirstExists(false);    
+    if (pipe) {
+        pipe.reset(x, y);
+
+        game.physics.arcade.enable(pipe);                
+        pipe.body.velocity.x = -200;
+        pipe.checkWorldBounds = true;
+
+        pipe.events.onOutOfBounds.add(killPipe, this);
+    }
+}
+
+function killPipe(pipe) {
+    pipe.kill();
 }
