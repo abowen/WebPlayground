@@ -16,8 +16,8 @@ function preload() {
 var player;
 var cursors;
 var playerShots;
-var playerLastShotTime = 0;
-var playerLastVelocity;
+var playerShotTime = 0;
+var playerLastDirection = [1, 0];
 
 function create() {
     // GAME    
@@ -48,47 +48,51 @@ function update() {
     //game.physics.arcade.collide(player, platforms);
 
     // MOVEMENT
-    var velocity = 50;    
+    var velocity = 50;
     if (cursors.left.isDown) {
         player.body.velocity.x = -velocity;
-        player.body.velocity.y = 0;        
-        player.animations.play('left');        
+        player.body.velocity.y = 0;
+        player.animations.play('left');
+       playerLastDirection =  [-1, 0];
     }
     else if (cursors.right.isDown) {
         player.body.velocity.x = velocity;
         player.body.velocity.y = 0;
-        player.animations.play('right');        
+        player.animations.play('right');
+       playerLastDirection =  [1, 0];
     }
     else if (cursors.up.isDown) {
         player.body.velocity.x = 0;
         player.body.velocity.y = -velocity;
-        player.animations.play('up');        
+        player.animations.play('up');
+        playerLastDirection =  [0, -1];
     }
     else if (cursors.down.isDown) {
         player.body.velocity.x = 0;
         player.body.velocity.y = velocity;
-        player.animations.play('down');        
+        player.animations.play('down');
+        playerLastDirection =  [0, 1];        
     }
-    
-    else {                
+    else {
         player.body.velocity.x = 0;
         player.body.velocity.y = 0;
         player.animations.stop();
-    }
+    }    
 
-    //game.camera.x = player.x;
-    //game.camera.y = player.y;
-
-    if ((game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) 
-        && (game.time.totalElapsedSeconds() > playerLastShotTime + 1)) {
+    if (game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
         createPlayerBullet();
     }
 }
 
 function createPlayerBullet() {
-    playerLastShotTime = game.time.totalElapsedSeconds();
-    var playerShell = game.add.sprite(player.body.center.x, player.body.center.y, 'shell');
-    game.physics.arcade.enable(playerShell);
-    //playerShell.body.velocity.x = player.body.facing;
-    playerShots.add(playerShell);
+    if (game.time.totalElapsedSeconds() > playerShotTime + 1) {
+        playerShotTime = game.time.totalElapsedSeconds();
+
+        var playerShell = game.add.sprite(player.body.center.x, player.body.center.y, 'shell');
+        game.physics.arcade.enable(playerShell);
+        playerShell.body.velocity.x = playerLastDirection[0] * 100;
+        playerShell.body.velocity.y = playerLastDirection[1] * 100;
+
+        playerShots.add(playerShell);
+    }
 }
