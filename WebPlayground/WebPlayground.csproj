@@ -68,7 +68,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CSS\Common.css" />
+    <Content Include="Common.css" />
     <Content Include="Games\DoomDemake\Assets\bfg.png" />
     <Content Include="Games\DoomDemake\Assets\lofi_1bit_scifi.png" />
     <Content Include="Games\DoomDemake\Assets\plasma.png" />
@@ -105,16 +105,14 @@
     <Content Include="Games\Pong\Scripts\jquery-2.1.0.min.js" />
     <Content Include="Games\Pong\Scripts\paddle.js" />
     <Content Include="Games\Pong\Scripts\pong.js" />
-    <Content Include="HTML\Index.html" />
-    <Content Include="HTML\JavaScript\jQuery.html" />
+    <Content Include="Index.html" />
+    <Content Include="JavaScript\jQuery.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Scripts\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
