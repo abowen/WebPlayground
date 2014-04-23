@@ -1,6 +1,15 @@
 ﻿body {
-    font-family: monospace;
-    /*font: normal 11px "Lucida Grande", "Lucida Sans Unicode", verdana, lucida, sans-serif;*/
+    /*font-family: monospace;*/
+    background-color: #1E1E1E;
+    font: normal 16px "Lucida Grande", "Lucida Sans Unicode", verdana, lucida, sans-serif;
+}
+
+h1 {
+    color: #C7C7C7;
+}
+
+h2 {
+    color: #749786;
 }
 
 #header {
@@ -9,32 +18,33 @@
 }
 
 .box {
+    background-color: #007ACC;
     display: inline-block;
     vertical-align: top;
-    width: 300px;
-    height: 200px;
+    width: 400px;
+    height: 300px;
     margin: 5px;
-    padding: 10px;
+    padding-left: 40px;
+    padding-top: 30px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    border: solid whitesmoke 10px;
+    box-sizing: border-box;    
 }
 
 #box1 {
-    background-color: lightgreen;
+    background-color: #007ACC;
 }
 
 #box2 {
-    background-color: lightblue;
+    background-color: #F3CA37;
 }
 
 #box3 {
-    background-color: lightpink;
+    background-color: #F38B76;
 }
 
 #box4 {
-    background-color: lightyellow;
+    background-color: #2CAF00;
 }
 
 
@@ -44,19 +54,31 @@ ul {
     text-align: left;
 }
 
+ul li {
+    margin: 10px;    
+}
+
     ul li a {        
-        padding-left: 5px;
-        padding-right: 5px;
+        padding: 8px;
         text-align: left;
-        text-decoration: none;
+        text-decoration: none;        
     }
-        ul li a:default {            
-            color: black;            
+
+        ul li a:link {
+            color: #1E1E1E;
+        }
+        /* unvisited link */
+        ul li a:visited {
+            color: #1E1E1E;
         }
 
-        ul li a:hover {            
+        /* visited link */
+        ul li a:active {
+            color: #1E1E1E;
+        }
+        /* selected link */
+
+        ul li a:hover {
             color: whitesmoke;
-            background-color: black;
+            background-color: #1E1E1E;
         }
-
-        
