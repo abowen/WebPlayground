@@ -12,6 +12,7 @@ function preload() {
 
     game.load.spritesheet('player', '../assets/player.png', 8, 8);
     game.load.spritesheet('shell', '../assets/shell.png', 2, 2);
+    game.load.spritesheet('plasma', '../assets/plasma.png', 4, 4);
 }
 
 
@@ -20,6 +21,7 @@ var cursors;
 var playerShots;
 var playerShotTime = 0;
 var playerLastDirection = [1, 0];
+var walls;
 
 function create() {
     // GAME    
@@ -30,24 +32,40 @@ function create() {
     // PLAYER    
     player = game.add.sprite(200, 150, 'player');
     game.physics.arcade.enable(player);
-    player.body.collideWorldBounds = true;
+    player.body.collideWorldBounds = true;    
 
     //  Our two animations, walking left and right.
     player.animations.add('right', [0, 1, 2], 10, true);
     player.animations.add('down', [3, 4, 5, 6], 10, true);
     player.animations.add('left', [7, 8, 9], 10, true);
-    player.animations.add('up', [10, 11, 12, 13], 10, true);
+    player.animations.add('up', [10, 11, 12, 13], 10, true);   
 
     // PLAYER BULLETS
     playerShots = game.add.group();
 
     // INPUT
     cursors = game.input.keyboard.createCursorKeys();
+
+    // WALLS
+    walls = game.add.group();
+    walls.enableBody = true;
+    var wall = game.add.sprite(100, 100, 'plasma');
+    game.physics.arcade.enable(wall);
+    wall.body.immovable = true;
+
+    wall.animations.add('normal', [0, 1], 10, true);
+    wall.animations.play('normal');
+        
+    walls.add(wall);    
 }
 
 function update() {
-    // COLLISION
-    //game.physics.arcade.collide(player, platforms);
+    // PHYSICS
+    //game.physics.arcade.overlap(player, walls, function (internalPlayer, internalWall) {
+    //    internalWall.kill();
+    //    internalPlayer.kill();
+    //}, null, this);
+    //game.physics.arcade.collide(player, walls);
 
     // MOVEMENT
     var velocity = 50;
