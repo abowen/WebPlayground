@@ -1,4 +1,4 @@
-﻿var game = new Phaser.Game(400, 300, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+﻿var game = new Phaser.Game(400, 300, Phaser.AUTO, '', { preload: preload, create: create, update: update, render: render });
 
 function preload() {
 
@@ -13,8 +13,16 @@ function preload() {
     game.load.spritesheet('player', '../assets/player.png', 8, 8);
     game.load.spritesheet('shell', '../assets/shell.png', 2, 2);
     game.load.spritesheet('plasma', '../assets/plasma.png', 4, 4);
+    
+
+    game.load.tilemap('map', '../assets/maps/level01.csv', null, Phaser.Tilemap.CSV);    
+    //game.load.image('wall', '../assets/wall.png');
+    game.load.image('star', '../assets/wall.png');
+
 }
 
+var map;
+var layer;
 
 var player;
 var cursors;
@@ -24,7 +32,15 @@ var playerLastDirection = [1, 0];
 var walls;
 
 function create() {
-    // GAME    
+    // MAP
+    //map = game.add.tilemap('map', 8, 8);
+    //map.addTilesetImage('wall');
+    //layer = map.createLayer(0);
+    //layer.resizeWorld();
+    game.add.sprite(10, 10, 'plasma');
+
+    
+    // GAME
     game.physics.startSystem(Phaser.Physics.ARCADE);
     game.stage.backgroundColor = '#999999';
     game.world.setBounds(0, 0, 2000, 2000);
@@ -32,7 +48,8 @@ function create() {
     // PLAYER    
     player = game.add.sprite(200, 150, 'player');
     game.physics.arcade.enable(player);
-    player.body.collideWorldBounds = true;    
+    player.body.collideWorldBounds = true;
+
 
     //  Our two animations, walking left and right.
     player.animations.add('right', [0, 1, 2], 10, true);
@@ -56,7 +73,10 @@ function create() {
     wall.animations.add('normal', [0, 1], 10, true);
     wall.animations.play('normal');
         
-    walls.add(wall);    
+    walls.add(wall);
+
+    // INFO
+    // player.fixedToCamera = true;
 }
 
 function update() {
@@ -102,6 +122,10 @@ function update() {
     if (game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
         createPlayerBullet();
     }
+}
+
+function render() {
+
 }
 
 function createPlayerBullet() {

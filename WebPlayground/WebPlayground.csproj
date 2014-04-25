@@ -60,6 +60,13 @@
     <Content Include="Games\DoomDemake\Assets\maps\level01.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Games\DoomDemake\Assets\maps\level01.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Games\DoomDemake\Assets\wall.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Games\DoomDemake\Scripts\phaser.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -77,6 +84,8 @@
     </Content>
     <Content Include="Games\DoomDemake\Assets\shell.png" />
     <Content Include="Games\DoomDemake\HTML\doomdemake.html" />
+    <Content Include="Games\DoomDemake\Scripts\phaser.d.ts" />
+    <Content Include="Games\DoomDemake\Scripts\phaser.js" />
     <Content Include="Games\DoomDemake\Scripts\phaser.min.js" />
     <Content Include="Games\DoomDemake\Scripts\doom.js" />
     <Content Include="Games\Flappy\Assets\bird.png" />
