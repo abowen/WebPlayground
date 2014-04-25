@@ -8,21 +8,18 @@ function preload() {
     game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
     game.scale.setScreenSize();
 
-    //game.load.tilemap('map', 'assets/maps/level01.json', null, Phaser.Tilemap.TILED_JSON);
-
     game.load.spritesheet('player', '../assets/player.png', 8, 8);
     game.load.spritesheet('shell', '../assets/shell.png', 2, 2);
     game.load.spritesheet('plasma', '../assets/plasma.png', 4, 4);
     
-
     game.load.tilemap('map', '../assets/maps/level01.csv', null, Phaser.Tilemap.CSV);    
-    //game.load.image('wall', '../assets/wall.png');
-    game.load.image('star', '../assets/wall.png');
-
+    game.load.image('wall', '../assets/wall.png');
+    game.load.image('tileset', '../assets/walls.png');
 }
 
 var map;
 var layer;
+var tileImage;
 
 var player;
 var cursors;
@@ -33,12 +30,11 @@ var walls;
 
 function create() {
     // MAP
-    //map = game.add.tilemap('map', 8, 8);
-    //map.addTilesetImage('wall');
-    //layer = map.createLayer(0);
-    //layer.resizeWorld();
-    game.add.sprite(10, 10, 'plasma');
-
+    tileImage = game.add.tileSprite(50, 50, 150, 150, 'wall');
+    map = game.add.tilemap('map', 8, 8);
+    map.addTilesetImage('tileset');
+    layer = map.createLayer(0);
+    layer.resizeWorld();
     
     // GAME
     game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -50,6 +46,7 @@ function create() {
     game.physics.arcade.enable(player);
     player.body.collideWorldBounds = true;
 
+    game.camera.follow(player);
 
     //  Our two animations, walking left and right.
     player.animations.add('right', [0, 1, 2], 10, true);
