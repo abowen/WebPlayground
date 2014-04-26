@@ -11,6 +11,7 @@ function preload() {
     game.load.spritesheet('player', '../assets/player.png', 8, 8);
     game.load.spritesheet('shell', '../assets/shell.png', 2, 2);
     game.load.spritesheet('plasma', '../assets/plasma.png', 4, 4);
+    game.load.spritesheet('bfg', '../assets/bfg.png', 8, 8);
     
     game.load.tilemap('map', '../assets/maps/mapCSV_Group1_Map1.csv', null, Phaser.Tilemap.CSV);
     game.load.image('wall', '../assets/wall.png');
@@ -78,8 +79,9 @@ function create() {
         
     walls.add(wall);
 
-    // INFO
-    // player.fixedToCamera = true;
+    // TEXT
+    playerShotsRemainingText = game.add.text(16, 258, playerShotsRemaining, { fontSize: '8px', fill: '#999' });
+
 }
 
 function update() {
@@ -133,6 +135,9 @@ function update() {
     if (game.input.keyboard.isDown(Phaser.Keyboard.X)) {
         playerSelectedWeapon = createPlasma;
     }
+    if (game.input.keyboard.isDown(Phaser.Keyboard.C)) {
+        playerSelectedWeapon = createBfg;
+    }
 }
 
 function render() {
@@ -143,6 +148,8 @@ function playerShoots() {
     if (game.time.totalElapsedSeconds() > playerShotTime + 1) {
         playerShotTime = game.time.totalElapsedSeconds();
         playerShotsRemaining--;
+        playerShotsRemainingText.text = playerShotsRemaining;
+
 
         var shot = playerSelectedWeapon(player.body.x, player.body.y);
         game.physics.arcade.enable(shot);
@@ -156,7 +163,7 @@ function playerShoots() {
 function createShell(x, y)
 {
     var bullet = game.add.sprite(x, y, 'shell');
-    bullet.speed = 200;
+    bullet.speed = 300;
     return bullet;
 }
 
@@ -164,6 +171,14 @@ function createPlasma(x, y) {
     var bullet = game.add.sprite(x, y, 'plasma');
     bullet.animations.add('normal', [0, 1], 10, true);
     bullet.animations.play('normal');
-    bullet.speed = 100;
+    bullet.speed = 150;
+    return bullet;
+}
+
+function createBfg(x, y) {
+    var bullet = game.add.sprite(x, y, 'bfg');
+    bullet.animations.add('normal', [0, 1], 2, true);
+    bullet.animations.play('normal');
+    bullet.speed = 75;
     return bullet;
 }
