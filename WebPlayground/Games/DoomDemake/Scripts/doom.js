@@ -25,8 +25,12 @@ var tileImage;
 var player;
 var cursors;
 var playerShots;
+var playerShotsRemaining = 100;
+var playerShotsRemainingText;
 var playerShotTime = 0;
+
 var playerLastDirection = [1, 0];
+var playerSelectedWeapon;
 var walls;
 
 function create() {
@@ -43,11 +47,12 @@ function create() {
     game.world.setBounds(0, 0, 2000, 2000);
 
     // PLAYER    
-    player = game.add.sprite(200, 150, 'player');
+    player = game.add.sprite(16,16, 'player');
     game.physics.arcade.enable(player);
     player.body.collideWorldBounds = true;
-
     game.camera.follow(player);
+    playerSelectedWeapon = createShell;
+
 
     //  Our two animations, walking left and right.
     player.animations.add('right', [0, 1, 2], 10, true);
@@ -118,7 +123,15 @@ function update() {
     }    
 
     if (game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
-        createPlayerBullet();
+        playerShoots();
+    }
+
+    if (game.input.keyboard.isDown(Phaser.Keyboard.Z)) {
+        playerSelectedWeapon = createShell;
+    }
+
+    if (game.input.keyboard.isDown(Phaser.Keyboard.X)) {
+        playerSelectedWeapon = createPlasma;
     }
 }
 
@@ -126,15 +139,31 @@ function render() {
 
 }
 
-function createPlayerBullet() {
+function playerShoots() {
     if (game.time.totalElapsedSeconds() > playerShotTime + 1) {
         playerShotTime = game.time.totalElapsedSeconds();
+        playerShotsRemaining--;
 
-        var playerShell = game.add.sprite(player.body.center.x, player.body.center.y, 'shell');
-        game.physics.arcade.enable(playerShell);
-        playerShell.body.velocity.x = playerLastDirection[0] * 100;
-        playerShell.body.velocity.y = playerLastDirection[1] * 100;
-
-        playerShots.add(playerShell);
+        var shot = playerSelectedWeapon(player.body.x, player.body.y);
+        game.physics.arcade.enable(shot);
+        shot.body.velocity.x = playerLastDirection[0] * (shot.speed || 100);
+        shot.body.velocity.y = playerLastDirection[1] * (shot.speed || 100);
+        playerShots.add(shot);
     }
+}
+
+
+function createShell(x, y)
+{
+    var bullet = game.add.sprite(x, y, 'shell');
+    bullet.speed = 200;
+    return bullet;
+}
+
+function createPlasma(x, y) {
+    var bullet = game.add.sprite(x, y, 'plasma');
+    bullet.animations.add('normal', [0, 1], 10, true);
+    bullet.animations.play('normal');
+    bullet.speed = 100;
+    return bullet;
 }
