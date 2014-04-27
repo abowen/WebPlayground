@@ -2,11 +2,10 @@
 
 function preload() {
 
-    game.scale.maxWidth = 800;
-    game.scale.maxHeight = 600;
-
-    game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
-    game.scale.setScreenSize();    
+    game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;    
+    game.scale.pageAlignHorizontally = true;    
+    
+    game.scale.setScreenSize(true);    
 
     game.load.image('tileset',      '../assets/walls.png');
     game.load.image('wall',         '../assets/wall.png');
@@ -151,14 +150,14 @@ function update() {
         playerShoots();
     }
 
-    if (game.input.keyboard.isDown(Phaser.Keyboard.Z)) {
+    if (game.input.keyboard.isDown(Phaser.Keyboard.ONE)) {
         playerSelectedWeapon = createShell;
     }
 
-    if (game.input.keyboard.isDown(Phaser.Keyboard.X)) {
+    if (game.input.keyboard.isDown(Phaser.Keyboard.TWO)) {
         playerSelectedWeapon = createPlasma;
     }
-    if (game.input.keyboard.isDown(Phaser.Keyboard.C)) {
+    if (game.input.keyboard.isDown(Phaser.Keyboard.THREE)) {
         playerSelectedWeapon = createBfg;
     }
 }
@@ -175,8 +174,7 @@ function playerShoots() {
         //playerShotsRemainingText.text = playerShotsRemaining;
         playerShotsRemainingFont.setText(playerShotsRemaining.toString());
         
-
-        var shot = playerSelectedWeapon(player.body.x, player.body.y);
+        var shot = playerSelectedWeapon(player.body.center.x, player.body.center.y);
         game.physics.arcade.enable(shot);
         shot.body.velocity.x = playerLastDirection[0] * (shot.speed || 100);
         shot.body.velocity.y = playerLastDirection[1] * (shot.speed || 100);
@@ -188,12 +186,14 @@ function playerShoots() {
 function createShell(x, y)
 {
     var bullet = game.add.sprite(x, y, 'shell');
+    bullet.anchor.set(0.5, 0.5);
     bullet.speed = 300;
     return bullet;
 }
 
 function createPlasma(x, y) {
     var bullet = game.add.sprite(x, y, 'plasma');
+    bullet.anchor.set(0.5, 0.5);
     bullet.animations.add('normal', [0, 1], 10, true);
     bullet.animations.play('normal');
     bullet.speed = 150;
@@ -202,6 +202,7 @@ function createPlasma(x, y) {
 
 function createBfg(x, y) {
     var bullet = game.add.sprite(x, y, 'bfg');
+    bullet.anchor.set(0.5, 0.5);
     bullet.animations.add('normal', [0, 1], 2, true);
     bullet.animations.play('normal');
     bullet.speed = 75;
