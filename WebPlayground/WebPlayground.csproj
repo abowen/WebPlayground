@@ -57,7 +57,12 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Games\DoomDemake\Assets\lofi_interface.png" />
+    <Content Include="Games\DoomDemake\Assets\fontBlack.png" />
+    <Content Include="Games\DoomDemake\Assets\fontWhite.png" />
+    <Content Include="Games\DoomDemake\Assets\interfaceBlack.png" />
+    <Content Include="Games\DoomDemake\Assets\interfaceKeyboard.png" />
+    <Content Include="Games\DoomDemake\Assets\interfacePlayer.png" />
+    <Content Include="Games\DoomDemake\Assets\interfaceWhite.png" />
     <Content Include="Games\DoomDemake\Assets\maps\level01.dam" />
     <Content Include="Games\DoomDemake\Assets\maps\level01.jpg" />
     <Content Include="Games\DoomDemake\Assets\maps\level01.json">

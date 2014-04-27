@@ -1,4 +1,4 @@
-﻿var game = new Phaser.Game(400, 300, Phaser.AUTO, '', { preload: preload, create: create, update: update, render: render });
+﻿var game = new Phaser.Game(300, 200, Phaser.AUTO, '', { preload: preload, create: create, update: update, render: render });
 
 function preload() {
 
@@ -6,18 +6,22 @@ function preload() {
     game.scale.maxHeight = 600;
 
     game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
-    game.scale.setScreenSize();
-
+    game.scale.setScreenSize();    
 
     game.load.image('tileset',      '../assets/walls.png');
     game.load.image('wall',         '../assets/wall.png');
-    game.load.image('phaserTiles',  '../assets/phaserTiles.png');
+    game.load.image('phaserTiles', '../assets/phaserTiles.png');
+    //game.load.image('fontBlack', '../assets/fontBlack.png');
+    game.load.image('fontGrey', '../assets/fontGrey.png');
 
-    game.load.spritesheet('interfaceTiles', '../assets/lofi_interface.png', 8, 8);
-    game.load.spritesheet('player',         '../assets/player.png',         8, 8);
-    game.load.spritesheet('shell',          '../assets/shell.png',          2, 2);
-    game.load.spritesheet('plasma',         '../assets/plasma.png',         4, 4);
-    game.load.spritesheet('bfg',            '../assets/bfg.png',            8, 8);
+    game.load.spritesheet('interfaceWhite',     '../assets/interfaceWhite.png',     8, 8);
+    game.load.spritesheet('interfaceBlack',     '../assets/interfaceBlack.png',     8, 8);
+    game.load.spritesheet('interfaceKeyboard',  '../assets/interfaceKeyboard.png',  16, 16);
+    game.load.spritesheet('interfacePlayer',    '../assets/interfacePlayer.png',    16, 16);
+    game.load.spritesheet('player',             '../assets/player.png',             8, 8);
+    game.load.spritesheet('shell',              '../assets/shell.png',              2, 2);
+    game.load.spritesheet('plasma',             '../assets/plasma.png',             4, 4);
+    game.load.spritesheet('bfg',                '../assets/bfg.png',                8, 8);
     
     game.load.tilemap('map', '../assets/maps/mapCSV_Group1_Map1.csv', null, Phaser.Tilemap.CSV);            
 }
@@ -26,11 +30,15 @@ var map;
 var layer;
 var tileImage;
 
+
+
 var player;
 var cursors;
 var playerShots;
 var playerShotsRemaining = 100;
+var playerShotsRemainingFont;
 var playerShotsRemainingText;
+var playerShotsRemainingIcon;
 var playerShotTime = 0;
 
 var playerLastDirection = [1, 0];
@@ -82,9 +90,21 @@ function create() {
         
     walls.add(wall);
 
-    // TEXT
-    playerShotsRemainingText = game.add.text(16, 258, playerShotsRemaining, { fontSize: '8px', fill: '#999' });
 
+
+    // INTERFACE
+    var height = game.height * 0.9;
+    var width = game.height * 0.1;
+    
+
+    playerShotsRemainingIcon = game.add.sprite(width, height, 'interfacePlayer', 0);        
+    playerShotsRemainingFont = game.add.retroFont('fontGrey', 8, 8, "0123456789!@#$|( )-=+,.=;/\?`ABCDEFGHIJKLMNOPQRSTUVWXYZ", 54);
+    playerShotsRemainingFont.setText(playerShotsRemaining.toString(), false, 0, 0, Phaser.RetroFont.ALIGN_CENTER);
+    playerShotsRemainingText = game.add.image(width + 40, height + 4, playerShotsRemainingFont);
+    playerShotsRemainingText.anchor.set(1, 0);
+    
+    //var style = { font: '8px Arial', fill: '#999', align: "center" };
+    //playerShotsRemainingText = game.add.text(width, height + 16, playerShotsRemaining, style);
 }
 
 function update() {
@@ -151,8 +171,10 @@ function playerShoots() {
     if (game.time.totalElapsedSeconds() > playerShotTime + 1) {
         playerShotTime = game.time.totalElapsedSeconds();
         playerShotsRemaining--;
-        playerShotsRemainingText.text = playerShotsRemaining;
 
+        //playerShotsRemainingText.text = playerShotsRemaining;
+        playerShotsRemainingFont.setText(playerShotsRemaining.toString());
+        
 
         var shot = playerSelectedWeapon(player.body.x, player.body.y);
         game.physics.arcade.enable(shot);
