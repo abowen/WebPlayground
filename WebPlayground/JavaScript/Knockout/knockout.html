@@ -8,19 +8,58 @@
     <link href="knockout.css" rel="stylesheet" />
 </head>
 <body>
-    <h1>Knockout</h1>
-    <br/>
-    <h2>Observable</h2>
+    <h1>Health Awareness</h1>        
+    <div>
+        <table id="calories">
+            <!-- Table header -->
+            <thead>
+                <tr>
+                    <th scope="col">Macronutrient</th>
+                    <th scope="col">Calories per gram</th>
+                </tr>
+            </thead>
+            <!-- Table footer -->
+            <!--<tfoot>
+                <tr>
+                    <td></td>
+                </tr>
+            </tfoot>-->
+            <!-- Table body -->
+            <tbody>
+                <tr>
+                    <td>Carbohydrates</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>Protein</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>Fat</td>
+                    <td>9</td>
+                </tr>
+                <tr>
+                    <td>Alcohol</td>
+                    <td>7</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div>
+
+    </div>
+
     <div>
         <h3>Property</h3>
         <input data-bind="value: firstName" />
-        <span data-bind="text: firstName" ></span>
-        <br/>
+        <span data-bind="text: firstName"></span>
+        <br />
         <input data-bind="value: lastName" />
         <br />
         <h3>Computed</h3>
         <span data-bind="text: fullName"></span>
-        <br />        
+        <br />
         <h3>Computed Converter</h3>
         <span data-bind="text: income"></span>
         <br />
@@ -32,15 +71,15 @@
     <div>
         <h3>Select</h3>
         <select data-bind="options: computers, value: selectedComputer, optionsText: 'name', optionsCaption: 'Choose a computer'"></select>
-        <br/>
+        <br />
         <!-- ko with: computers() -->
-        <span data-bind="text:length" ></span>
+        <span data-bind="text:length"></span>
         <!-- /ko -->
         <br />
         <!-- ko with: selectedComputer-->
         <span data-bind="text: key"></span>
         <!-- /ko -->
     </div>
-    
+
 </body>
 </html>
