@@ -8,7 +8,7 @@
     <link href="knockout.css" rel="stylesheet" />
 </head>
 <body>
-    <h1>Health Awareness</h1>        
+    <h1>Health Awareness</h1>
     <div>
         <table id="calories">
             <!-- Table header -->
@@ -38,7 +38,7 @@
             </tbody>
         </table>
     </div>
-    <br/>
+    <br />
     <div>
         <table id="terminalogy">
             <!-- Table header -->
@@ -47,7 +47,7 @@
                     <th scope="col">Term</th>
                     <th scope="col">Millilitres</th>
                 </tr>
-            </thead>        
+            </thead>
             <!-- Table body -->
             <tbody>
                 <tr>
@@ -85,37 +85,25 @@
             </tbody>
         </table>
     </div>
-
     <div>
-        <h3>Property</h3>
-        <input data-bind="value: firstName" />
-        <span data-bind="text: firstName"></span>
-        <br />
-        <input data-bind="value: lastName" />
-        <br />
-        <h3>Computed</h3>
-        <span data-bind="text: fullName"></span>
-        <br />
-        <h3>Computed Converter</h3>
-        <span data-bind="text: income"></span>
-        <br />
-        <input data-bind="value: expenses" />
-        <br />
-        <input data-bind="value: percent" />
+        <table id="food">
+            <!-- Table header -->
+            <thead>
+                <tr>
+                    <th scope="col">Food</th>
+                    <th scope="col">Calories per 100ml</th>
+                    <!--<th scope="col">Reference</th>-->
+                </tr>
+            </thead>
+            <tbody data-bind="foreach: food">
+                <tr>
+                    <td data-bind="text: name"></td>
+                    <td data-bind="text: calories"></td>
+                    <!-- TODO: Change this to link with full text hidden -->
+                    <!--<td data-bind="text: reference"></td>-->
+                </tr>
+            </tbody>
+        </table>
     </div>
-    <h2>Observable Array</h2>
-    <div>
-        <h3>Select</h3>
-        <select data-bind="options: computers, value: selectedComputer, optionsText: 'name', optionsCaption: 'Choose a computer'"></select>
-        <br />
-        <!-- ko with: computers() -->
-        <span data-bind="text:length"></span>
-        <!-- /ko -->
-        <br />
-        <!-- ko with: selectedComputer-->
-        <span data-bind="text: key"></span>
-        <!-- /ko -->
-    </div>
-
 </body>
 </html>
