@@ -67,6 +67,10 @@
                     <td>200</td>
                 </tr>
                 <tr>
+                    <td>Middy</td>
+                    <td>285</td>
+                </tr>
+                <tr>
                     <td>Can</td>
                     <td>375</td>
                 </tr>
@@ -76,7 +80,11 @@
                 </tr>
                 <tr>
                     <td>Pint</td>
-                    <td>568</td>
+                    <td>570</td>
+                </tr>
+                <tr>
+                    <td>Jug</td>
+                    <td>1140</td>
                 </tr>
                 <tr>
                     <td>Yard</td>
@@ -91,11 +99,31 @@
             <thead>
                 <tr>
                     <th scope="col">Food</th>
-                    <th scope="col">Calories per 100ml</th>
+                    <th scope="col">Calories per 100g</th>
                     <!--<th scope="col">Reference</th>-->
                 </tr>
             </thead>
             <tbody data-bind="foreach: food">
+                <tr>
+                    <td data-bind="text: name"></td>
+                    <td data-bind="text: calories"></td>
+                    <!-- TODO: Change this to link with full text hidden -->
+                    <!--<td data-bind="text: reference"></td>-->
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <table id="drink">
+            <!-- Table header -->
+            <thead>
+                <tr>
+                    <th scope="col">Beverage</th>
+                    <th scope="col">Calories per 100ml</th>
+                    <!--<th scope="col">Reference</th>-->
+                </tr>
+            </thead>
+            <tbody data-bind="foreach: drink">
                 <tr>
                     <td data-bind="text: name"></td>
                     <td data-bind="text: calories"></td>
