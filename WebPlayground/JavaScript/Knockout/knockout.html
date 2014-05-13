@@ -100,15 +100,14 @@
                 <tr>
                     <th scope="col">Food</th>
                     <th scope="col">Calories per 100g</th>
-                    <!--<th scope="col">Reference</th>-->
+                    <th scope="col">Reference</th>
                 </tr>
             </thead>
             <tbody data-bind="foreach: food">
                 <tr>
                     <td data-bind="text: name"></td>
-                    <td data-bind="text: calories"></td>
-                    <!-- TODO: Change this to link with full text hidden -->
-                    <!--<td data-bind="text: reference"></td>-->
+                    <td data-bind="text: calories"></td>                    
+                    <td><a data-bind="attr: { href: url }">Reference</a></td>
                 </tr>
             </tbody>
         </table>
@@ -120,15 +119,14 @@
                 <tr>
                     <th scope="col">Beverage</th>
                     <th scope="col">Calories per 100ml</th>
-                    <!--<th scope="col">Reference</th>-->
+                    <th scope="col">Reference</th>
                 </tr>
             </thead>
             <tbody data-bind="foreach: drink">
                 <tr>
                     <td data-bind="text: name"></td>
                     <td data-bind="text: calories"></td>
-                    <!-- TODO: Change this to link with full text hidden -->
-                    <!--<td data-bind="text: reference"></td>-->
+                    <td><a data-bind="attr: { href: url }">Reference</a></td>
                 </tr>
             </tbody>
         </table>

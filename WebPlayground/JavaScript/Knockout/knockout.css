@@ -1,5 +1,5 @@
 ﻿body {
-    padding : 50px;
+    padding: 50px;
     align-content: center;
     line-height: 1.6em;
     font-size: 14px;
@@ -9,8 +9,8 @@
 
 table {
     table-layout: fixed;
-    width: 400px;    
-    border-collapse: collapse;            
+    width: 500px;
+    border-collapse: collapse;
 }
 
 th {
@@ -31,3 +31,26 @@ td {
 tbody tr:hover td {
     color: #009;
 }
+
+
+a {    
+    text-decoration: none;
+}
+
+    a:link {
+        /*color: #1E1E1E;*/
+    }
+    /* unvisited link */
+    a:visited {
+        /*color: #1E1E1E;*/
+    }
+
+    /* visited link */
+    a:active {
+        color: #1E1E1E;
+    }
+    /* selected link */
+    a:hover {
+        color: black;
+        /*background-color: #1E1E1E;*/
+    }
