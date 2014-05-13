@@ -80,6 +80,7 @@
     </Content>
     <Content Include="Games\DoomDemake\Scripts\phaser.map" />
     <Content Include="Games\DoomDemake\Assets\maps\mapCSV_Group1_Map1.csv" />
+    <Content Include="JavaScript\Knockout\jquery-2.1.0.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -129,6 +130,14 @@
     <Content Include="Games\Pong\Scripts\pong.js" />
     <Content Include="Index.html" />
     <Content Include="JavaScript\jQuery.html" />
+    <None Include="JavaScript\Knockout\jquery-2.1.0.intellisense.js" />
+    <Content Include="JavaScript\Knockout\jquery-2.1.0.js" />
+    <Content Include="JavaScript\Knockout\jquery-2.1.0.min.js" />
+    <Content Include="JavaScript\Knockout\knockout-3.1.0.debug.js" />
+    <Content Include="JavaScript\Knockout\knockout-3.1.0.js" />
+    <Content Include="JavaScript\Knockout\knockout.css" />
+    <Content Include="JavaScript\Knockout\knockout.html" />
+    <Content Include="JavaScript\Knockout\knockout.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
