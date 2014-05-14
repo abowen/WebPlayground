@@ -129,5 +129,31 @@
             </tbody>
         </table>
     </div>
+    <div>
+        <table id="foodIntake">
+            <thead>
+                <tr>
+                    <th scope="col">Food Intake</th>
+                    <th scope="col">Grams</th>
+                    <th scope="col">Calories</th>
+                    <th scope="col">Test</th>
+                    <th scope="col">Test</th>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach: foodIntake">
+                <tr>
+                    <td>
+                        <select data-bind="options:$parent.food, selectedOptions:selectedItem, optionsText:'name'"></select>
+                    </td>
+                    <td>
+                        <input data-bind="value: input" />
+                    </td>
+                    <td data-bind="text: result"></td>
+                    <td data-bind="text: input"></td>
+                    <td data-bind="text: selectedItem() && selectedItem().name"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
