@@ -28,19 +28,19 @@ $(function() {
     };
 
     var foodEntry = function () {
+        var self = this;
         this.selectedItem = ko.observable({});
         this.input = ko.observable(100);
         this.result = ko.computed(function() {
-            //alert("called");
-            var self = this;
+            //alert("called");            
             if (!selectedItem) {
                 return 0;
             }
             return self.input * self.selectedItem.calories;
-        }, this);
+        });
     };
 
-    myViewModel.foodIntake.push(foodEntry());
+    myViewModel.foodIntake.push(new foodEntry());
 
     ko.applyBindings(myViewModel);
 });
