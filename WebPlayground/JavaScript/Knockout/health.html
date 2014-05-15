@@ -135,9 +135,7 @@
                 <tr>
                     <th scope="col">Food Intake</th>
                     <th scope="col">Grams</th>
-                    <th scope="col">Calories</th>
-                    <th scope="col">Test</th>
-                    <th scope="col">Test</th>
+                    <th scope="col">Calories</th>                    
                 </tr>
             </thead>
             <tbody data-bind="foreach: foodIntake">
@@ -148,9 +146,7 @@
                     <td>
                         <input data-bind="value: input" />
                     </td>
-                    <td data-bind="text: result"></td>
-                    <td data-bind="text: input"></td>
-                    <td data-bind="text: selectedItem() && selectedItem().name"></td>
+                    <td data-bind="text: result"></td>                    
                 </tr>
             </tbody>
         </table>

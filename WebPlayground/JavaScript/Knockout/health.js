@@ -29,14 +29,13 @@ $(function() {
 
     var foodEntry = function () {
         var self = this;
-        this.selectedItem = ko.observable({});
-        this.input = ko.observable(100);
-        this.result = ko.computed(function() {
-            //alert("called");            
-            if (!selectedItem) {
+        this.selectedItem = ko.observable();
+        this.input = ko.observable(0);
+        this.result = ko.computed(function() {                    
+            if (!self.selectedItem()) {
                 return 0;
             }
-            return self.input * self.selectedItem.calories;
+            return self.input() * self.selectedItem()[0].calories / 100;
         });
     };
 
