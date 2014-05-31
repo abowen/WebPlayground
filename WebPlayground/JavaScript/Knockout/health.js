@@ -20,11 +20,25 @@ $(function() {
     { name: "Rum", calories: 219, url: "https://www.wolframalpha.com/input/?i=calories+in+100ml+of+rum" },
     ]);
 
+    var exerciseData = ko.observableArray([
+    { name: "Push ups",      calories: 20, url: "https://www.wolframalpha.com/input/?i=how+many+calories+in+100ml+of+milk" },
+    { name: "Burpees",       calories: 10, url: "https://www.wolframalpha.com/input/?i=how+many+calories+in+100ml+of+milk" },
+    { name: "Walking  4kmh", calories:  1, url: "https://www.wolframalpha.com/input/?i=how+many+calories+in+100ml+of+milk" },
+    { name: "Jogging  6kmh", calories:  4, url: "https://www.wolframalpha.com/input/?i=how+many+calories+in+100ml+of+milk" },
+    { name: "Running  8kmh", calories:  8, url: "https://www.wolframalpha.com/input/?i=how+many+calories+in+100ml+of+skim+milk" },
+    { name: "Running 10kmh", calories: 10, url: "https://www.wolframalpha.com/input/?i=how+many+calories+in+100ml+of+beer" },
+    { name: "Running 12kmh", calories: 15, url: "https://www.wolframalpha.com/input/?i=calories+in+100ml+of+rum" },
+    { name: "Running 15kmh", calories: 24, url: "https://www.wolframalpha.com/input/?i=calories+in+100ml+of+rum" },
+    { name: "Sprint  18kmh", calories: 30, url: "https://www.wolframalpha.com/input/?i=calories+in+100ml+of+rum" },
+    ]);
+
     // Binding
     var myViewModel = {
         food: foodData,
         drink: drinkData,
-        foodIntake: ko.observableArray([])
+        exercise: exerciseData,
+        foodIntake: ko.observableArray([]),
+        speedEntry: ko.observableArray([])
     };
 
     var foodEntry = function () {
@@ -40,6 +54,24 @@ $(function() {
     };
 
     myViewModel.foodIntake.push(new foodEntry());
+
+    var speedEntry = function () {
+        var self = this;
+        this.speed = ko.observable(0);
+        this.time = ko.observable(0);
+        this.distance = ko.computed(function () {
+            return self.speed() * self.time() / 60;
+        });
+        this.pace = ko.computed(function () {
+            if (self.speed() == 0) {
+                return 0;
+            }
+            return 1 / (self.speed() / 60);
+        });
+    };
+
+    myViewModel.speedEntry.push(new speedEntry());
+
 
     ko.applyBindings(myViewModel);
 });

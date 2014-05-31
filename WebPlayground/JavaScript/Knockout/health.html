@@ -130,6 +130,24 @@
         </table>
     </div>
     <div>
+        <table id="exercise">
+            <thead>
+                <tr>
+                    <th scope="col">Exercise</th>
+                    <th scope="col">Calories per minute</th>
+                    <th scope="col">Reference</th>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach: exercise">
+                <tr>
+                    <td data-bind="text: name"></td>
+                    <td data-bind="text: calories"></td>
+                    <td><a data-bind="attr: { href: url }">Wolfram Alpha</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
         <table id="foodIntake">
             <thead>
                 <tr>
@@ -147,6 +165,31 @@
                         <input data-bind="value: input" />
                     </td>
                     <td data-bind="text: result"></td>                    
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <table id="speedEntry">
+            <thead>
+                <tr>
+                    <th scope="col">Speed (km/h)</th>
+                    <th scope="col">Time (min)</th>
+                    <th scope="col">Distance (km)</th>
+                    <th scope="col">Pace (min/km)</th>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach: speedEntry">
+                <tr>
+                    <td>
+                        <input data-bind="value: speed" />
+                    </td>
+                    <td>
+                        <input data-bind="value: time" />
+                    </td>
+                    <td data-bind="text: distance"></td>
+                    <td data-bind="text: pace"></td>
+                    
                 </tr>
             </tbody>
         </table>
