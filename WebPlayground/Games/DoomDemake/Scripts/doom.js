@@ -80,13 +80,10 @@ function create() {
     // WALLS
     walls = game.add.group();
     walls.enableBody = true;
-    var wall = game.add.sprite(100, 100, 'plasma');
+    var wall = game.add.sprite(16, 16, 'wall');
     game.physics.arcade.enable(wall);
     wall.body.immovable = true;
-
-    wall.animations.add('normal', [0, 1], 10, true);
-    wall.animations.play('normal');
-        
+            
     walls.add(wall);
 
 
@@ -108,11 +105,8 @@ function create() {
 
 function update() {
     // PHYSICS
-    //game.physics.arcade.overlap(player, walls, function (internalPlayer, internalWall) {
-    //    internalWall.kill();
-    //    internalPlayer.kill();
-    //}, null, this);
-    //game.physics.arcade.collide(player, walls);
+    game.physics.arcade.collide(walls, player, collisionHandler, null, this);
+  
 
     // MOVEMENT
     var velocity = 50;
@@ -165,6 +159,11 @@ function update() {
 function render() {
 
 }
+
+function collisionHandler(obj1, obj2) {
+   // game.stage.backgroundColor = '#992d2d';
+}
+
 
 function playerShoots() {
     if (game.time.totalElapsedSeconds() > playerShotTime + 1) {
