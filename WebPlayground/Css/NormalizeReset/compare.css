@@ -1,0 +1,8 @@
+﻿iframe {
+    width: 500px;
+    height: 500px;
+    background-color: transparent;
+    border: 0 none transparent;
+    padding: 0;
+    overflow: hidden;
+}

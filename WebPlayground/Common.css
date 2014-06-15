@@ -36,18 +36,24 @@ h2 {
 }
 
 #box2 {
-    background-color: #F3CA37;
-}
-
-#box3 {
-    background-color: #F38B76;
-}
-
-#box4 {
     background-color: #2CAF00;
 }
 
+#box3 {
+    background-color: #ffd700;
+}
 
+#box4 {
+    background-color: #ffa500;
+}
+
+#box5 {
+    background-color: #a52a2a;
+}
+
+#box6 {
+    background-color: #F38B76;
+}
 
 ul {
     list-style-type: none;

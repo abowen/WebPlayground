@@ -57,6 +57,12 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Css\NormalizeReset\normalize.css" />
+    <Content Include="Css\NormalizeReset\compare.css" />
+    <Content Include="Css\NormalizeReset\reset.css" />
+    <Content Include="Css\NormalizeReset\Reset.html" />
+    <Content Include="Css\NormalizeReset\Normalize.html" />
+    <Content Include="Css\NormalizeReset\compare.html" />
     <Content Include="Games\DoomDemake\Assets\fontBlack.png" />
     <Content Include="Games\DoomDemake\Assets\fontWhite.png" />
     <Content Include="Games\DoomDemake\Assets\interfaceBlack.png" />
