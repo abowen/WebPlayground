@@ -57,6 +57,12 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Css\Grid\grid.css" />
+    <Content Include="Css\Grid\grid.html" />
+    <Content Include="Css\Grid\reset.css" />
+    <Content Include="Css\Grid\respond.min.js" />
+    <Content Include="Css\Grid\responsive.gs.12col.css" />
+    <Content Include="Css\Grid\style.css" />
     <Content Include="Css\NormalizeReset\normalize.css" />
     <Content Include="Css\NormalizeReset\compare.css" />
     <Content Include="Css\NormalizeReset\reset.css" />

@@ -1,0 +1,47 @@
+
+@import url("reset.css");
+
+@import url("responsive.gs.12col.css");
+
+
+body {
+	font-family: sans-serif;
+	color: white;
+}
+
+header {
+	line-height: 5em;    
+	text-align: center;
+	background: #333;
+}
+
+article {
+	line-height: 2em;   
+	text-align: center;
+	background: #666;
+}
+
+aside {
+	line-height: 3em;    
+	text-align: center;
+	background: #999;
+}
+
+footer {
+	line-height: 4em;    
+	text-align: center;
+	background: #BBB;
+}
+
+h1 {
+    font-size: 4em;
+}
+
+h2 {
+    font-size: 3em;
+}
+
+p {
+    font-size: 2em;
+}
+ 
