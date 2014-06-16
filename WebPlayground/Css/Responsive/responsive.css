@@ -1,0 +1,62 @@
+﻿/* Phones */
+@media only screen and (min-device-width : 100px) {
+    h1 {
+        font-size: 20px;
+    }
+    h2 {
+        font-size: 14px;
+    }
+    #box1 {
+        background: blue
+    }
+    #box2 {
+        background: green
+    }
+    .content {
+        height:200px;
+    }
+    .sidebar {
+        height:200px;
+    }
+}
+
+
+/* Desktops / Laptops*/
+@media only screen and (min-width : 1224px) {
+    h1 {
+        font-size: 30px;
+    }
+    h2 {
+        font-size: 24px;
+    }
+    #box1 {
+        background: green
+    }
+    #box2 {
+        background: yellow
+    }
+    .content {
+        width:33%;
+        float: left;
+    }
+    .sidebar {
+        width: 66%;
+        float: left;
+    }
+}
+
+/* Large Monitors */
+@media only screen and (min-width : 1824px) {
+    h1 {
+        font-size: 40px;
+    }
+    h2 {
+        font-size: 30px;
+    }
+    #box1 {
+        background: yellow
+    }
+    #box2 {
+        background: red
+    }
+}

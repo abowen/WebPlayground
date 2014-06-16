@@ -63,6 +63,8 @@
     <Content Include="Css\NormalizeReset\Reset.html" />
     <Content Include="Css\NormalizeReset\Normalize.html" />
     <Content Include="Css\NormalizeReset\compare.html" />
+    <Content Include="Css\Responsive\responsive.css" />
+    <Content Include="Css\Responsive\responsive.html" />
     <Content Include="Games\DoomDemake\Assets\fontBlack.png" />
     <Content Include="Games\DoomDemake\Assets\fontWhite.png" />
     <Content Include="Games\DoomDemake\Assets\interfaceBlack.png" />
