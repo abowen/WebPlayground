@@ -57,6 +57,21 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Backbone\css\bootstrap-theme.css" />
+    <Content Include="Backbone\css\bootstrap-theme.min.css" />
+    <Content Include="Backbone\css\bootstrap.css" />
+    <Content Include="Backbone\css\bootstrap.min.css" />
+    <Content Include="Backbone\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Backbone\js\backbone.js" />
+    <Content Include="Backbone\js\bootstrap.js" />
+    <Content Include="Backbone\js\bootstrap.min.js" />
+    <Content Include="Backbone\js\jquery-1.11.1.js" />
+    <Content Include="Backbone\js\npm.js" />
+    <Content Include="Backbone\js\underscore.js" />
+    <Content Include="Backbone\rectangles.css" />
+    <Content Include="Backbone\rectangles.html" />
+    <Content Include="Backbone\rectangles.js" />
+    <Content Include="Backbone\template.html" />
     <Content Include="Css\Grid\grid.css" />
     <Content Include="Css\Grid\grid.html" />
     <Content Include="Css\Grid\reset.css" />
@@ -99,6 +114,11 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="JavaScript\Knockout\jquery-2.1.0.min.map" />
+    <Content Include="Backbone\css\bootstrap-theme.css.map" />
+    <Content Include="Backbone\css\bootstrap.css.map" />
+    <Content Include="Backbone\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Backbone\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Backbone\fonts\glyphicons-halflings-regular.woff" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
