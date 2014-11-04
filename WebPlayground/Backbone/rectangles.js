@@ -1,13 +1,19 @@
 (function (){
 	// No special capabilities outside default
-	var Rectangle = Backbone.Model.extend({});
+	var rectangle = Backbone.Model.extend({});
 
-	var RectangleView = Backbone.View.extend({
+	var rectangleView = Backbone.View.extend({
 		tagName : 'div', // Type of element to render for view
-		className : 'rectangle', // CSS type
+		className: 'rectangle', // CSS type
+
+        events: {
+            'click': 'move'
+        },
+
 		render : function() {
 			this.setDimensions();
 			this.setPosition();
+		    this.setColor();
 			// Convention to return view
 			return this;
 		},
@@ -26,20 +32,55 @@
 				left: position.x,
 				top: position.y
 			});
-		}
+		},
+
+        setColor: function() {
+            this.$el.css('background-color', this.model.get('color'));
+        },
+
+        move: function() {
+            this.$el.css('left', this.$el.position().left + 10);
+        }
 	});
 
-	var myRectangle = new Rectangle({
-		width: 100,
-		height: 60,
-		position: {
-			x: 300,
-			y: 150
-		}
-	});
+	var models =
+    [
+        new rectangle({
+            width: 100,
+            height: 60,
+            position: {
+                x: 300,
+                y: 150
+            },
+            color: '#ff0000'
+        }),
+        new rectangle({
+            width: 100,
+            height: 80,
+            position: {
+                x: 300,
+                y: 450
+            },
+            color: '#00ff00'
+        })
+        ,
+        new rectangle({
+            width: 150,
+            height: 60,
+            position: {
+                x: 50,
+                y: 350
+            },
+            color: '#0000ff'
+        })
+    ];
 
-	var myView = new RectangleView({model: myRectangle});
+    _(models).each(function(model) {
+        var myView = new rectangleView({ model: model });
 
-	// Select div with Id of canvas
-	$('div#canvas').append(myView.render().el);
+        // Select div with Id of canvas
+        $('div#canvas').append(myView.render().el);
+    });
+
+
 })();
